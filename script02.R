@@ -24,7 +24,27 @@ doyle <- spark_read_text(spark_conn, "doyle", "C:\\Users\\Oseia\\OneDrive\\Docum
 twain <- spark_read_text(spark_conn, "twain", "C:\\Users\\Oseia\\OneDrive\\Documentos\\MBA\\Twain.txt")
 
 
+#Criando coluna author:
+all_words <- doyle %>%
+  mutate(author = "doyle") %>%
+  sdf_bind_rows({ # Coloca um livro em baixo do outro
+    twain %>%
+      mutate(author = "twain")}) %>%
+  filter(nchar(line)> 0) # Removendo linahs com carácter 0
 
+# Removendo caracteres indesejados
+all_words <- all_words %>%
+  mutate(line = regexp_replace(line, "[_\"\'():;,.!?\\-]", " ")) 
+
+
+#listagem de palavras:
+all_words <- all_words %>%
+  ft_tokenizer(input_col = "line",
+               output_col = "word_list")
+
+
+
+print(all_words)
 
 
 
