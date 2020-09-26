@@ -86,5 +86,8 @@ word_count <- all_words %>%
 print(word_count, n= 10)
 
 
-
-
+# Conversão para o tipo de dados do R (saindo do spark)
+# Tf–idf -- o peso, a importância de uma sentença em um livro está totalmetne 
+#ligada a quantidade de vezes que a mesma se repete no livro
+word_count <- as_tibble(word_count)
+print(word_count,n = 20)
