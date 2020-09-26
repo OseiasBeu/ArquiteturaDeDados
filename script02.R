@@ -3,6 +3,8 @@ options(repos=structure(c(
   FHI="https://folkehelseinstituttet.github.io/drat/",
   CRAN="https://cran.rstudio.com"
 )))
+#Instalando uma biblioteca para analisede texto no R
+install.packages('tidytext')
 
 #Carregando as bibliotecas 
 
@@ -10,6 +12,7 @@ library(sparklyr)
 library(titanic)
 library(pryr)
 library(dplyr)
+library()
 
 
 # Fazendo a conexão com o spark 
