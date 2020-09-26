@@ -43,9 +43,24 @@ all_words <- all_words %>%
                output_col = "word_list")
 
 
-
+head(all_words,4)
 print(all_words)
 
+#Pivotamos, ou seja, transformamos cada palavra em uma linha
+all_words <- all_words %>%
+  mutate(word = explode(word_list))%>%
+  select(word,author) %>%
+  filter(nchar(word) > 2 )
+
+print(all_words, n=20)
+
+#Separamos todas as palavras de todas as linhas de dois livros,
+#removendo alguns casos extremos.
 
 
+#Computando toda a tabela
+all_words <- all_words %>%
+  compute("all_words")
+
+print(all_words,n=40)
 
