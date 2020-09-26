@@ -64,3 +64,27 @@ all_words <- all_words %>%
 
 print(all_words,n=40)
 
+
+# ANALISE  ----------------------------------------------------------------
+
+#Agrupando quantidade de palavras por author
+word_count <- all_words %>%
+  group_by(author,word) %>% #função de agrupamento
+  tally() %>% #função que efetua a contagem por agrupamento
+  arrange(desc(n)) #função de ordenação
+
+print(word_count, n= 10)
+
+
+#Em odem crescente
+word_count <- all_words %>%
+  group_by(author,word) %>%
+  tally() %>% 
+  arrange(n)
+
+#Geralmente, nós removemos as palavras que aparecem apenas uma vez
+print(word_count, n= 10)
+
+
+
+
