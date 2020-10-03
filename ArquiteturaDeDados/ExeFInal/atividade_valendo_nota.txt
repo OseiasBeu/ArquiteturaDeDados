@@ -1,0 +1,21 @@
+Análise literária em paradigma Big Data
+
+Realize a análise de texto por pesos tf-idf a fim de encontrar os termos mais importantes que pode diferenciar os autores Eça de Queiroz e MAchado de Assis.
+Para isso, utilize as versões "plain text" dos livros:
+
+
+https://www.gutenberg.org/ebooks/17515
+https://www.gutenberg.org/ebooks/55682
+https://www.gutenberg.org/ebooks/42942
+https://www.gutenberg.org/ebooks/55752
+
+Siga com uma análise semleante a que fizemos na aula do dia 26/09/2020:
+1) concatene os arquivos um em baixo do outro;
+2) conte as frequencias das palavras por livro / autor;
+3) verifique que as maiores frequÊncias são referentes a termos comuns na língua, tais como artigos, pronomes, ...;
+4) verifique quais são os termos menos frequêntes;
+5)calcule o peso tf-idf de importância de palavras;
+6) identifique 1 dezena de palavras mais importantes por autor.
+	(lembre-se que termos específicos de um livro distinguem o livro, mas não necessáriamente trazem informações das práticas autor.)
+	Em outras palavras, nomes de cidade, personagens e objetos do livro podem não conter informações que ajudem a definir o autor. descarte essas.
+
